@@ -8,6 +8,6 @@
 
 
 
-=> API Used - https://api.openweathermap.org/data/2.5/weather?q={}&appid={API key}
+=> API Used - https://api.openweathermap.org/data/2.5/weather?q={}&appid={}
 
 
