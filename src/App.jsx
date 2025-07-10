@@ -12,7 +12,7 @@ function App() {
     <>
     <div style={{
       width:"100vw",height:"100vh"
-    }} className="maincontainer  bg-[url(https://images.unsplash.com/photo-1473054056026-1480d2d09ac2?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)] flex ">
+    }} className=" flex   w-full min-h-screen  maincontainer sm:text-white  md:text-white md:w-80 sm:w-90 bg-[url(https://images.unsplash.com/photo-1507027682794-35e6c12ad5b4?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZGFyayUyMHJhaW58ZW58MHx8MHx8fDA%3D)] flex ">
        <Weatherbox/>
        
    

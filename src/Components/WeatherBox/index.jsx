@@ -14,7 +14,7 @@ useEffect(()=>{
     async function  fetchweatherdata(param) {
         setloading(true)
         try{
-               const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${param}&appid=3dfca5c0ec05638c2aec5f04d3257c78`)
+               const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${param}&appid={}`)
         const data = await response.json()
         if(data){
             setweatherdata(data)
@@ -33,10 +33,8 @@ useEffect(()=>{
 
     }
 
-    return <div className="background-image 
-   bg-cover z-0 bg-transparent flex
-   flex-row-reverse gap-[600px]" style={{
-    width:"100vw"
+    return <div className=" flex flex-row-reverse  w-[100vw] " style={{
+    
         
     }}>
         <Search
@@ -46,12 +44,25 @@ useEffect(()=>{
 
         />
 {
-   loading ? <div><Loading/></div> : <div>
-    <div className=" text-white font-bold flex ">
-        <h2>{weatherdata?.name}</h2>
+   loading ? <div><Loading/></div> : <div className=' w-2/3  flex flex-col text-gray-700 align-middle justify-center gap-[150px] p-[30px]'>
+    <div className=" text-white font-medium font-sans sm:text-8xl md:text-7xl lg:text-8xl ">
+        <h2>{weatherdata?.name}<span>,{weatherdata?.sys?.country}</span></h2>
     </div>
-   </div>
+    <div className="flex flex-row gap-5 w-[900px] rounded-xl p-5  text-gray-200 text-3xl font-medium bg-gray-500/50">
+  
+        <h5 className='flex flex-col gap-2 align-center justify-center w-[300px]  text-center'><span>Temperature </span>{Math.floor((weatherdata?.main?.temp)-273.15)} Celsius</h5>
+        <h5 className='flex flex-col gap-2 align-center justify-center w-[300px]  text-center' ><span>Weather In {weatherdata?.name}</span >{weatherdata && weatherdata.weather[0] ? weatherdata.weather[0].main: null}</h5>
+         <h5 className='flex flex-col gap-2 align-center justify-center w-[300px]  text-center' >{weatherdata && weatherdata.weather[0] ? weatherdata.weather[0].description: null}</h5>
+    </div>
+    </div>
+
+    
+  
+  
 }
+ 
 
     </div>
 }
+
+
