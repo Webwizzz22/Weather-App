@@ -5,39 +5,27 @@ import { useEffect, useState } from "react"
 export default function Search({search,setsearch,handlesearch}){
 
 
-   
+ function handleKeyDown(event) {
+    if (event.key === "Enter") {
+      handlesearch();
+    }
+  }
 
-    return <div  className="   Search-container 
-    bg-transparent 
-    backdrop-blur-[10px] 
-    border-black
-    border-2 
-    z-20 
-    w-full 
-    max-w-[500px]
-    min-w-[280px] 
-    h-[100vh]
-    
-   
-    
-    flex 
-    items-center 
-    flex-col 
-    justify-center 
-    gap-4 
-    sm:gap-[] 
-    lg:gap-8
-    rounded-lg
-    shadow-lg
-    px-0
-    mx-0
-  
-  
-    ">
-    <div className="searchbox  w-max-[200px] ">
-        <input  name="search" type="text" className="city-search text-black p-2" value={search} placeholder="Enter City Name" onChange={(event)=>setsearch(event.target.value)}/>
+    return <div  className="bg-gray-800/20 backdrop-blur-3xl
+      w-full sm:w-1/3 md:w-1/3 lg:w-1/3
+       flex flex-col justify-center items-center
+      rounded-bl-lg overflow-hidden
+     gap-5 z-50
+      max-w-xl transit">
+    <div className=" flex ">
+        <input  name="search" type="text" className="city-search  flex  p-1 rounded-sm" value={search} placeholder="Enter City Name" onChange={(event)=>setsearch(event.target.value)}
+               onKeyDown={handleKeyDown}   />
         
     </div>
-    <button className="searchbutton bg-gray-900 p-2 border-2 border-white " onClick={handlesearch}>Search City's Weather</button>
+    <button className="searchbutton bg-gray-900  text-white p-3  rounded-2xl " onClick={handlesearch}>Search City's Weather</button>
+    <div className="text-black text-sm mt-2 tracking-wide animate-bounce flex w-full p-2 align-middle text-center justify-center">
+        Try searching for your favorite city!
+      </div>
     </div>
+    
 }
