@@ -4,7 +4,7 @@ import Loading from "../Loading";
 import { FaSearch } from "react-icons/fa";
 import { FaCloud, FaCloudShowersHeavy } from "react-icons/fa6";
 
-export default function Weatherbox({ onWeatherStateChange, handleclick }) {
+export default function Weatherbox({ onWeatherStateChange, handleclickinside }) {
   const [search, setSearch] = useState("");
   const [loading, setloading] = useState(false);
   const [weatherdata, setweatherdata] = useState(null);
@@ -12,6 +12,7 @@ export default function Weatherbox({ onWeatherStateChange, handleclick }) {
 
   useEffect(() => {
     fetchweatherdata("bangalore");
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   async function fetchweatherdata(param) {
@@ -40,7 +41,8 @@ export default function Weatherbox({ onWeatherStateChange, handleclick }) {
     fetchweatherdata(search);
   }
 
-  async function handleclick() {
+  // eslint-disable-next-line no-redeclare
+  async function handleclickinside() {
     setsearchopen(!searchopen);
   }
 
@@ -54,7 +56,7 @@ export default function Weatherbox({ onWeatherStateChange, handleclick }) {
         <div className=" w-auto max-w-[100vw]  h-[100vh] overflow-hidden flex flex-row border-2  ">
           <div className="  min-h-[100vh]  w-3/4 right-0  flex flex-col p-5 gap-10 ">
             <FaSearch
-              onClick={handleclick}
+              onClick={handleclickinside}
               className="w-11 h-11 text-white cursor-pointer"
             />
             <div>
